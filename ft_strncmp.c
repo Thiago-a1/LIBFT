@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 17:44:47 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 10:23:50 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/01 18:01:32 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/03 18:48:39 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-int	ft_isdigit (int n)
+int	ft_strncmp(const char *str1, const char *str2, size_t len)
 {
-	if (n >= 48 && n <= 57)
+	size_t	i;
+
+	i = 0;
+	if (ft_strlen(str1) == 0 || ft_strlen(str2) == 0)
 	{
-		return (1);
+		return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+	}
+	while (i < len && str1[i] != '\0')
+	{
+		if (str1[i] != str2[i])
+		{
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+		}
+		i++;
 	}
 	return (0);
 }

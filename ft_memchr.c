@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 17:10:47 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 10:45:23 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/02 17:12:45 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/03 19:58:13 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-void	*ft_memmove(void *dest, void *src, size_t len)
+void	*ft_memchr(const void *str, int c, size_t len)
 {
-	unsigned char	*mem_src;
-	unsigned char	*mem_dest;
+	unsigned char	*mem_str;
+	unsigned char	mem_c;
+	size_t			i;
 
-	mem_src = src;
-	mem_dest = dest;
-	if (mem_dest > mem_src)
+	mem_str = (unsigned char *)str;
+	mem_c = (unsigned char)c;
+	i = 0;
+	while (i < len)
 	{
-		while (len-- > 0)
+		if (*mem_str == mem_c)
 		{
-			mem_dest[len] = mem_src[len];
+			return (mem_str);
 		}
+		mem_str++;
+		i++;
 	}
-	else
-	{
-		ft_memcpy(mem_dest, mem_src, len);
-	}
-	return (dest);
+	return (0);
 }

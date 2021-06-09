@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 17:52:04 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 10:25:36 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/04 17:21:37 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/09 12:59:35 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-static int	ft_isupper(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (n < 0)
 	{
-		return (1);
+		ft_putchar_fd('-', fd);
+		if (n == -2147483648)
+		{
+			ft_putchar_fd('2', fd);
+			ft_putnbr_fd(147483648, fd);
+			return;
+		}
+		n = -n;
 	}
-	return (0);
-}
-
-int	ft_tolower(int c)
-{
-	if (ft_isupper(c))
+	if (n > 10)
 	{
-		return (c + 32);
+		ft_putnbr_fd(n / 10, fd);
 	}
-	return (c);
+	ft_putchar_fd(n % 10 + 48, fd);
 }

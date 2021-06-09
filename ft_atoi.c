@@ -6,15 +6,18 @@
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 18:41:34 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 10:23:09 by jthiago-         ###   ########.fr       */
+/*   Updated: 2021/06/03 18:29:05 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 static int	ft_isspace(char c)
 {
-	if (c == '\t' || c == '\v' || c == '\r' || c == '\f')
+	if (c == ' ' || c == '\t' || c == '\v' 
+		|| c == '\r' 
+		|| c == '\f' 
+		|| c == '\n')
 	{
 		return (1);
 	}

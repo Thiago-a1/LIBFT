@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 18:32:07 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 11:27:16 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/02 17:08:24 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/04 10:02:18 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+void	*ft_memccpy(void *dest,const void *src, int c, size_t len)
 {
-	char	*ret;
+	unsigned char	*mem_src;
+	unsigned char	*mem_dest;
+	size_t			i;
 
-	ret = (char *)0;
-	while (*str != '\0')
+	mem_src = (unsigned char *)src;
+	mem_dest = (unsigned char *)dest;
+	i = 0;
+	while (i < len)
 	{
-		if (*str == c)
+		mem_dest[i] = mem_src[i];
+		if (mem_src[i] == (unsigned char)c)
 		{
-			ret = (char *)str;
+			return ((void *)mem_dest + i + 1);
 		}
-		str++;
+		i++;
 	}
-	return (ret);
+	return (NULL);
 }
