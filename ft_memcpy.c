@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 17:08:24 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 10:33:44 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/02 17:06:09 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/03 18:01:40 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-void	*ft_memccpy(void *dest, void *src, int c, size_t len)
+void	*ft_memcpy(void *dest, const void *src, size_t len)
 {
 	unsigned char	*mem_src;
 	unsigned char	*mem_dest;
 	size_t			i;
 
-	mem_src = src;
+	mem_src = (unsigned char *)src;
 	mem_dest = dest;
 	i = 0;
-	while (i < len)
+	if (mem_dest == NULL && mem_src == NULL)
 	{
-		*mem_dest++ = *mem_src++;
-		if (*mem_src == (unsigned char)c)
-		{
-			return (dest);
-		}
-		i++;
+		return (NULL);
 	}
-	return (NULL);
+	while (i++ < len)
+	{
+		*mem_dest = *mem_src;
+		mem_dest++;
+		mem_src++;
+	}
+	return (dest);
 }

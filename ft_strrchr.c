@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 17:12:45 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 10:40:27 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/01 18:32:07 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/03 19:14:31 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-void	*ft_memchr(void *str, int c, size_t len)
+char	*ft_strrchr(const char *str, int c)
 {
-	unsigned char	*mem_str;
-	unsigned char	mem_c;
-	int				i;
+	char	*ret;
+	int		len;
 
-	mem_str = str;
-	mem_c = c;
-	i = 0;
-	while (mem_str[i] < len)
+	ret = (char *)0;
+	len = ft_strlen(str);
+	if (c == '\0')
 	{
-		if (mem_str[i] == mem_c)
-		{
-			return (&mem_str[i]);
-		}
-		i++;
+		return ((char *)str + len);
 	}
-	return (0);
+	while (*str)
+	{
+		if (*str == c)
+		{
+			ret = (char *)str;
+		}
+		str++;
+	}
+	return (ret);
 }

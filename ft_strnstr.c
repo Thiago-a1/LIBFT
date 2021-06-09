@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 17:54:37 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 10:27:01 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/01 18:18:30 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/04 11:21:16 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
-	char	*mem;
 
 	i = 0;
-	mem = s;
-	while (i++ < len)
+	if (to_find == 0 || str == to_find)
 	{
-		*mem = 0;
-		mem ++;
+		return ((char *)str);
 	}
+	while (str[i] != '\0' && i < len)
+	{
+		if (str[i] == to_find[0])
+		{
+			if (ft_strncmp(&str[i], to_find, len - i + 1))
+			{
+				return ((char *)str);
+			}
+		}
+		i++;
+	}
+	return (NULL);
 }

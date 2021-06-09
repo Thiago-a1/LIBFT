@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 18:13:50 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/03 11:10:21 by jthiago-         ###   ########.fr       */
+/*   Created: 2021/06/02 17:01:48 by jthiago-          #+#    #+#             */
+/*   Updated: 2021/06/03 12:00:36 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t size)
+void	*ft_memset(void *str, int c, size_t len)
 {
-	size_t	i;
+	unsigned char	*mem;
+	size_t			i;
 
+	mem = str;
 	i = 0;
-	size -= 1;
-	while (src[i] && (i < size))
+	while (i++ < len)
 	{
-		dest[i] = src[i];
-		i++;
+		*mem = c;
+		mem++;
 	}
-	dest[i] = '\0';
-	return (i);
+	return (str);
 }
