@@ -6,7 +6,7 @@
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 19:21:12 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/08 19:00:34 by jthiago-         ###   ########.fr       */
+/*   Updated: 2021/06/10 18:31:27 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,16 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	}
 	words_number = ft_number_of_words((char *)s, c);
-	if (!(array = (char **)malloc(sizeof(char) * (words_number + 1))))
-	{
+	array = (char **)malloc(sizeof(char) * (words_number + 1));
+	if (array == NULL)
 		return (NULL);
-	}
 	while (words_number--)
 	{
 		while (*s == c && *s != '\0')
-		{
 			s++;
-		}
 		array[i] = ft_substr((char *)s, 0, ft_line_length((char *)s, c));
 		if (!array[i])
-		{
 			return (ft_free(array, i));
-		}
 		s = s + ft_line_length((char *)s, c);
 		i++;
 	}
