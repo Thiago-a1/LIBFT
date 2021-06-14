@@ -6,7 +6,7 @@
 /*   By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:21:37 by jthiago-          #+#    #+#             */
-/*   Updated: 2021/06/10 18:39:42 by jthiago-         ###   ########.fr       */
+/*   Updated: 2021/06/14 12:48:44 by jthiago-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putnbr_fd(int n, int fd)
 		{
 			ft_putchar_fd('2', fd);
 			ft_putnbr_fd(147483648, fd);
-			return;
+			return (0);
 		}
 		n = -n;
 	}
