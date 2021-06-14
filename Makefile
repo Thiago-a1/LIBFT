@@ -6,7 +6,7 @@
 #    By: jthiago- <jthiago-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/02 17:46:38 by jthiago-          #+#    #+#              #
-#    Updated: 2021/06/09 12:53:10 by jthiago-         ###   ########.fr        #
+#    Updated: 2021/06/11 17:23:23 by jthiago-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ SRC		=	ft_atoi.c \
 			ft_strjoin.c \
 			ft_strmapi.c \
 			ft_split.c \
+			ft_itoa.c \
+			ft_strtrim.c
 
 HEAD	=	libft.h
 
